@@ -5,6 +5,7 @@ import datetime
 # import pymongo module
 import pymongo
 # connection string
+#howto conneect
 client = pymongo.MongoClient("mongodb+srv://MongoDBUser:vandyHacks123!@queuedup-8aqrb.gcp.mongodb.net/test?retryWrites=true&w=majority")
 
 # test
