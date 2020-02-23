@@ -9,6 +9,7 @@ import re
 app = Flask(__name__, static_url_path='/static')
 sockets = Sockets(app)
 
+#controls
 songController = musicController.controller()
 
 for val in musicController.EXAMPLE_SONGS:
@@ -56,6 +57,7 @@ def reset_app():
 def gen_random_time():
 	return "{}:{}".format(random.randint(2,5), random.randint(10, 59))
 
+#runs route for song order
 @app.route("/getSongOrder", methods=["GET"])
 def get_song_order():
 	b = ""
@@ -93,7 +95,7 @@ def echo_socket(ws):
 		time.sleep(.1)
 
 
-
+#routes to current songs
 @app.route("/getCurrent", methods=["GET"])
 def get_current_info():
 	if len(songController.order) == 0:
@@ -128,6 +130,7 @@ def index():
 	songController.add(x)
 	return 'This works'
 
+#routes to play
 @app.route('/playCurrent', methods=["GET"])
 def play_current_song():
 	return send_file("songs/{}.mp3".format(songController.play_current()))
@@ -140,11 +143,12 @@ def play_next_song():
 	return send_file("songs/{}.mp3".format(songController.play_current()))
 
 
-
+#tests
 @app.route('/test', methods=['GET'])
 def testPage():
 	return render_template("index1.html")
 
+#runs player
 @app.route('/player', methods=['GET'])
 def getPlayer():
 	if len(songController.order) == 0:

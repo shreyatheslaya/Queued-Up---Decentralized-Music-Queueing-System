@@ -75,6 +75,7 @@ class controller():
 		if str(self.order[0]['fingerprint']) != prevOrder:
 			print("ORDER CHANGED: {} is now next".format(self.order[0]['fingerprint']))
 
+			#plays next
 	def play_next(self):
 		if len(self.order) == 0:
 			return None
@@ -84,7 +85,7 @@ class controller():
 		del self.count[nextSong['fingerprint']]
 		return nextSong['fingerprint']
 		return info
-
+		#plays current
 	def play_current(self):
 		if len(self.order) == 0:
 			return None
@@ -138,7 +139,7 @@ class parseURL():
 		self.do_download = download
 
 		urlParse()
-
+	#identifier
 	def gen_fingerprint(self):
 		return "{}_{}".format(self.artist.replace(" ", "-"), self.song.replace(" ", "-")).lower()
 
@@ -166,6 +167,8 @@ class parseURL():
 		self.download()
 		return
 
+
+		#parse it
 	def parse_apple_music(self):
 
 		page = get_page_from_url(self.url)
@@ -200,6 +203,7 @@ class parseURL():
 		return vars(self)
 
 
+#checks for main class to parse
 if __name__ == '__main__':
 	songController = controller()
 	# parseURL("https://open.spotify.com/track/3h3pOvw6hjOvZxRUseB7h9?si=XeSg8xLFQpC8LED2A1uWaQ")
