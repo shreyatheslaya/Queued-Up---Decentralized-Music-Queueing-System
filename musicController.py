@@ -23,6 +23,7 @@ def split_between(string, part1, part2):
 
 
 
+#uses spotify
 EXAMPLE_SONGS = ['https://open.spotify.com/track/2SG0RPcyWgUPqLCKWLtYc1', 
 'https://open.spotify.com/track/7oK9VyNzrYvRFo7nQEYkWN', 
 'https://open.spotify.com/track/2Fxmhks0bxGSBdJ92vM42m', 

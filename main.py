@@ -5,7 +5,6 @@ import datetime
 # import pymongo module
 import pymongo
 # connection string
-#howto conneect
 client = pymongo.MongoClient("mongodb+srv://MongoDBUser:vandyHacks123!@queuedup-8aqrb.gcp.mongodb.net/test?retryWrites=true&w=majority")
 
 # test
@@ -17,9 +16,11 @@ document = {'album': u'Melodrama', 'artist': u'Lorde', 'song': u'Green Light', '
 # insert document into collection
 
 
+#adds to DB
 def addToDB(document):
 	collection.insert_one(document).inserted_id
 
+#downloads song
 def download_song(fingerprint, song, artist):
 	os.system('youtube-dl --extract-audio --audio-format mp3 -o "songs/{}.%(ext)s" "ytsearch:{} {} lyrics"'.format(fingerprint, artist, song))
 

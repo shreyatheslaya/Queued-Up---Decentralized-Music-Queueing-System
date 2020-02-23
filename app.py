@@ -114,6 +114,7 @@ def get_current_album_artwork():
 		return ""
 	return songController.order[0]['album_art']
 
+#routes to added song
 @app.route('/addSong', methods=["POST"])
 def index():
 	print(request.get_json())
@@ -131,6 +132,7 @@ def index():
 def play_current_song():
 	return send_file("songs/{}.mp3".format(songController.play_current()))
 
+#plays next
 @app.route('/playNext', methods=["GET"])
 def play_next_song():
 	songController.play_next()
