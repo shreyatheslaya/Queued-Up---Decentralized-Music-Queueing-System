@@ -132,7 +132,7 @@ def index():
 def play_current_song():
 	return send_file("songs/{}.mp3".format(songController.play_current()))
 
-#plays next
+#plays next in order
 @app.route('/playNext', methods=["GET"])
 def play_next_song():
 	songController.play_next()
